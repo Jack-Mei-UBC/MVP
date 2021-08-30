@@ -6,7 +6,7 @@ import os
 logging.basicConfig(level=logging.INFO)
 command = "."
 owner = "219905033876013058"
-token = os.getenv("DISC_TOKEN_TEST")
+token = os.getenv("DISC_TOKEN0")
 
 
 class MyClient(discord.Client):
