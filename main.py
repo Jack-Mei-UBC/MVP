@@ -35,7 +35,7 @@ class MyClient(discord.Client):
 
         mvp_id = 872901421417246800
         if after.message_id == mvp_id:
-            message = await self.get_channel(838492366121861150).fetch_message(881722819237539911)
+            message = await self.get_channel(838492366121861150).fetch_message(872901421417246800)
             if (len(message.embeds) != 0):
                 await self.send_results(message.embeds[0], message.content)
             await self.send_results(None, message.content)
