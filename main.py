@@ -20,14 +20,17 @@ class MyClient(discord.Client):
 
     async def send_results(self, embed: discord.Embed, content) -> None:
         for message in self.copyList:  # type:discord.Message
-            await message.edit(embed=embed, content=content)
+            if len(content) == 0:
+                await message.edit(embed=embed)
+            else:
+                await message.edit(embed=embed, content=content)
 
     async def set_flag_copy(self, message: discord.Message):
         newMessage = await message.channel.send("Will update next time a mvp is sent here")
         self.copyList.append(newMessage)
 
     async def on_message(self, message: discord.Message):
-        if message.content.startswith(command + "placeFlag") and message.author.guild_permissions.administrator:
+        if message.content.startswith(command + "placeFlag") and self.check_if_it_is_me(message):
             await self.set_flag_copy(message)
 
     async def on_raw_message_edit(self, after: discord.Message):
