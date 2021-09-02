@@ -46,8 +46,8 @@ class MyClient(discord.Client):
     #         await self.send_results(None, message.content)
 
     async def every_five_minutes(self):
-        # message = await self.get_channel(838492366121861150).fetch_message(872901421417246800)
-        message = await self.get_channel(875050700852310045).fetch_message(883071638193725471)
+        message = await self.get_channel(838492366121861150).fetch_message(872901421417246800)
+        # message = await self.get_channel(875050700852310045).fetch_message(883071638193725471)
         if len(message.embeds) != 0:
             await self.send_results(message.embeds[0], message.content)
         await self.send_results(None, message.content)
